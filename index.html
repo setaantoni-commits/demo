@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D F Roofing Services — Anstey, Leicester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate-900:#171b1f;
+    --slate-800:#20252b;
+    --slate-700:#2b3138;
+    --slate-line: rgba(245,239,228,0.14);
+    --tile-600:#b1502e;
+    --tile-700:#8f3f24;
+    --tile-glow: rgba(177,80,46,0.35);
+    --copper-500:#9c7b4f;
+    --cream-100:#f5efe4;
+    --cream-200:#ece1cc;
+    --ink:#171b1f;
+    --white:#fff;
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--cream-100);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px;height:1px;
+    background:currentColor;
+    opacity:0.6;
+  }
+
+  /* ===== NAV ===== */
+  header.site{
+    position:fixed;top:0;left:0;right:0;
+    z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;
+    background:linear-gradient(to bottom, rgba(23,27,31,0.85), rgba(23,27,31,0));
+    transition:background 0.3s ease;
+  }
+  header.site.scrolled{
+    background:var(--slate-900);
+    box-shadow:0 1px 0 var(--slate-line);
+  }
+  .brand{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:20px;
+    color:var(--cream-100);
+    letter-spacing:0.01em;
+  }
+  .brand span{color:var(--tile-600);}
+  nav.links{display:flex;gap:34px;font-size:14px;color:var(--cream-200);}
+  nav.links a{opacity:0.85;transition:opacity .2s;}
+  nav.links a:hover{opacity:1;}
+  .nav-call{
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--mono);
+    font-size:13.5px;
+    color:var(--cream-100);
+    border:1px solid rgba(245,239,228,0.3);
+    padding:9px 16px;
+    border-radius:2px;
+    transition:border-color .2s, background .2s;
+  }
+  .nav-call:hover{border-color:var(--tile-600);background:rgba(177,80,46,0.12);}
+  @media (max-width:760px){ nav.links{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 78% 8%, rgba(177,80,46,0.22), transparent 45%),
+      linear-gradient(160deg, #1b2027 0%, #171b1f 55%, #12151a 100%);
+    color:var(--cream-100);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:150px 0 0;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:end;
+    padding-bottom:120px;
+  }
+  .hero-eyebrow{color:var(--tile-600);margin-bottom:26px;}
+  h1.hero-title{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(40px, 6.4vw, 76px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  h1.hero-title em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--tile-600);
+  }
+  .hero-sub{
+    max-width:420px;
+    font-size:16.5px;
+    line-height:1.65;
+    color:var(--cream-200);
+    opacity:0.85;
+    padding-bottom:6px;
+  }
+  .hero-actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--body);
+    font-weight:600;
+    font-size:14.5px;
+    padding:16px 28px;
+    border-radius:2px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{
+    background:var(--tile-600);
+    color:var(--cream-100);
+    box-shadow:0 10px 30px -8px var(--tile-glow);
+  }
+  .btn-primary:hover{background:var(--tile-700);transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid rgba(245,239,228,0.28);
+    color:var(--cream-100);
+  }
+  .btn-ghost:hover{border-color:var(--cream-100);}
+
+  .hero-stat-card{
+    background:rgba(245,239,228,0.05);
+    border:1px solid var(--slate-line);
+    backdrop-filter:blur(6px);
+    padding:30px;
+    border-radius:3px;
+  }
+  .stars{color:var(--tile-600);font-size:15px;letter-spacing:2px;margin-bottom:10px;}
+  .stat-num{font-family:var(--display);font-size:44px;font-weight:600;line-height:1;}
+  .stat-label{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream-200);opacity:0.7;margin-top:8px;}
+  .stat-quote{margin-top:20px;padding-top:20px;border-top:1px solid var(--slate-line);font-size:14px;line-height:1.6;color:var(--cream-200);font-style:italic;}
+
+  /* roofline divider — signature motif */
+  .roofline{
+    position:absolute;
+    left:0;right:0;bottom:-1px;
+    width:100%;height:64px;
+    z-index:3;
+  }
+  .roofline path{fill:var(--cream-100);}
+  .roofline.dark path{fill:var(--slate-900);}
+
+  /* ===== TRUST BAR ===== */
+  .trustbar{
+    background:var(--cream-100);
+    padding:26px 0;
+    border-bottom:1px solid rgba(23,27,31,0.08);
+  }
+  .trustbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:18px;
+  }
+  .trust-item{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    color:var(--slate-700);
+    display:flex;align-items:center;gap:8px;
+    opacity:0.75;
+  }
+
+  /* ===== SECTION shared ===== */
+  section{position:relative;}
+  .section-pad{padding:120px 0;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(30px,4vw,46px);
+    line-height:1.08;
+    margin-top:18px;
+    letter-spacing:-0.01em;
+  }
+  .section-head p{
+    margin-top:18px;
+    font-size:15.5px;
+    line-height:1.7;
+    color:#4a4640;
+    max-width:520px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services{background:var(--cream-100);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(23,27,31,0.1);
+    border:1px solid rgba(23,27,31,0.1);
+  }
+  .service-card{
+    background:var(--cream-100);
+    padding:38px 34px;
+    transition:background .3s ease;
+  }
+  .service-card:hover{background:var(--cream-200);}
+  .service-num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--tile-600);
+    margin-bottom:22px;
+  }
+  .service-card h3{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:21px;
+    margin-bottom:12px;
+  }
+  .service-card p{font-size:14.5px;line-height:1.65;color:#565248;}
+  @media (max-width:860px){ .service-grid{grid-template-columns:1fr;} }
+
+  /* ===== PROCESS / SIGNATURE CROSS-SECTION ===== */
+  .process{background:var(--slate-900);color:var(--cream-100);}
+  .process .section-head p{color:var(--cream-200);opacity:0.75;}
+  .process .section-head .eyebrow{color:var(--tile-600);}
+  .cross-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .cross-stage{
+    position:relative;
+    aspect-ratio:1/0.92;
+  }
+  .layer-list{display:flex;flex-direction:column;gap:34px;}
+  .layer-item{
+    display:flex;gap:20px;
+    opacity:0.25;
+    transform:translateX(-14px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .layer-item.active{opacity:1;transform:translateX(0);}
+  .layer-tag{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--tile-600);
+    min-width:38px;
+    padding-top:3px;
+  }
+  .layer-item h4{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:19px;
+    margin-bottom:6px;
+  }
+  .layer-item p{font-size:14px;line-height:1.6;color:var(--cream-200);opacity:0.8;max-width:380px;}
+  @media (max-width:860px){ .cross-wrap{grid-template-columns:1fr;} .cross-stage{order:-1;margin-bottom:20px;} }
+
+  /* ===== STORY ===== */
+  .story{background:var(--cream-100);}
+  .story-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:70px;
+    align-items:center;
+  }
+  .story-frame{
+    border:1px solid rgba(23,27,31,0.12);
+    background:var(--cream-200);
+    aspect-ratio:4/5;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .story-frame .initials{
+    font-family:var(--display);
+    font-size:120px;
+    font-weight:600;
+    color:rgba(177,80,46,0.18);
+    letter-spacing:-0.03em;
+  }
+  .story-frame .frame-tag{
+    position:absolute;bottom:20px;left:20px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--slate-700);opacity:0.6;
+  }
+  .story-copy p{font-size:16px;line-height:1.75;color:#3a372f;margin-bottom:20px;}
+  .story-copy p:first-of-type{font-family:var(--display);font-size:22px;font-weight:500;color:var(--ink);line-height:1.5;}
+  .story-sign{
+    margin-top:28px;
+    font-family:var(--display);
+    font-style:italic;
+    font-size:20px;
+    color:var(--tile-700);
+  }
+
+  /* ===== REVIEWS ===== */
+  .reviews{background:var(--slate-800);color:var(--cream-100);}
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .review-card{
+    border:1px solid var(--slate-line);
+    padding:32px 28px;
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+    min-height:220px;
+  }
+  .review-card .stars{margin-bottom:18px;}
+  .review-card blockquote{
+    font-family:var(--display);
+    font-size:18px;
+    font-weight:400;
+    line-height:1.5;
+    font-style:italic;
+  }
+  .review-card cite{
+    display:block;margin-top:20px;
+    font-family:var(--mono);font-size:12px;
+    color:var(--cream-200);opacity:0.6;
+    font-style:normal;
+  }
+  @media (max-width:860px){ .review-grid{grid-template-columns:1fr;} }
+
+  /* ===== CONTACT / CTA ===== */
+  .contact{background:var(--cream-100);}
+  .contact-panel{
+    background:var(--tile-600);
+    color:var(--cream-100);
+    border-radius:3px;
+    padding:70px 60px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:50px;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-panel h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(28px,3.6vw,42px);
+    line-height:1.12;
+  }
+  .contact-panel p{margin-top:16px;font-size:15px;line-height:1.7;opacity:0.92;max-width:380px;}
+  .contact-panel .btn-primary{background:var(--slate-900);margin-top:28px;}
+  .contact-panel .btn-primary:hover{background:#000;}
+  .contact-info{
+    border-left:1px solid rgba(245,239,228,0.3);
+    padding-left:44px;
+    display:flex;flex-direction:column;gap:22px;
+    justify-content:center;
+  }
+  .info-row{display:flex;flex-direction:column;gap:4px;}
+  .info-row .label{font-family:var(--mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75;}
+  .info-row .value{font-size:17px;font-weight:600;}
+  .info-row a.value:hover{text-decoration:underline;}
+  @media (max-width:860px){
+    .contact-panel{grid-template-columns:1fr;padding:50px 30px;}
+    .contact-info{border-left:none;border-top:1px solid rgba(245,239,228,0.3);padding-left:0;padding-top:30px;}
+  }
+
+  footer{
+    background:var(--slate-900);
+    color:var(--cream-200);
+    padding:40px 0;
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:13px;opacity:0.65;flex-wrap:wrap;gap:12px;
+  }
+  footer .brand{font-size:16px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="brand">D&nbsp;F <span>Roofing</span></div>
+  <nav class="links">
+    <a href="#services">Services</a>
+    <a href="#process">Our Process</a>
+    <a href="#story">Dave &amp; Samantha</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <a class="nav-call" href="tel:07523829279">&#9742; 07523 829279</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow">Anstey · Leicester &amp; Surrounding Villages</div>
+      <h1 class="hero-title">A roof<br>done properly,<br><em>the first time.</em></h1>
+      <p class="hero-sub">Family-run roofing, from Dave and Samantha. Pitched and flat roofing, re-roofs, leadwork and emergency repairs — carried out with the honesty of tradespeople who live in the same postcode as their reputation.</p>
+      <div class="hero-actions">
+        <a href="tel:07523829279" class="btn btn-primary">Call for a free quote →</a>
+        <a href="#reviews" class="btn btn-ghost">Read the reviews</a>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stars">★★★★★</div>
+      <div class="stat-num">4.7</div>
+      <div class="stat-label">From 12 verified local reviews</div>
+      <div class="stat-quote">"Such a rarity to find such honest trades people. If any other issues arise, they will be my only contact."</div>
+    </div>
+  </div>
+  <svg class="roofline" viewBox="0 0 1200 64" preserveAspectRatio="none">
+    <path d="M0,64 L0,40 L60,10 L120,40 L180,10 L240,40 L300,10 L360,40 L420,10 L480,40 L540,10 L600,40 L660,10 L720,40 L780,10 L840,40 L900,10 L960,40 L1020,10 L1080,40 L1140,10 L1200,40 L1200,64 Z"/>
+  </svg>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trustbar">
+  <div class="wrap">
+    <div class="trust-item">95 Link Rd, Anstey, Leicester LE7&nbsp;7BZ</div>
+    <div class="trust-item">Open today · Closes 6pm</div>
+    <div class="trust-item">Run by Dave &amp; Samantha, not a call centre</div>
+    <div class="trust-item">No fix, no fee on diagnosis</div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services section-pad" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--tile-600)">What we do</div>
+      <h2>Every part of the roof, none of the upsell.</h2>
+      <p>Two companies quoted differently on the same leak before us — that's the norm in this trade. We diagnose first, fix what's actually broken, and price it straight.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Pitched roofing &amp; re-roofs</h3>
+        <p>Tile and slate replacement, full re-roofs and structural repairs built to outlast the next storm, not just the next inspection.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Emergency leak repair</h3>
+        <p>Broken tiles, storm damage, sudden leaks. Most call-outs are diagnosed and fixed the same visit — often in under 30 minutes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Flat roofing</h3>
+        <p>Felt, EPDM and GRP flat roof installation and repair for extensions, garages and outbuildings.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Leadwork &amp; flashing</h3>
+        <p>Chimney and valley leadwork replaced properly, so water is turned away rather than quietly let in.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Guttering &amp; fascias</h3>
+        <p>Gutter clearance, repair and replacement, plus fascia and soffit work to keep water off the walls, not down them.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Roof inspections</h3>
+        <p>An honest health check before you buy, sell, or simply want to sleep through the next downpour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS / SIGNATURE ===== -->
+<section class="process section-pad" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it's built</div>
+      <h2>Every roof is only as good as its worst layer.</h2>
+      <p>Scroll to see what's actually holding your roof up — the parts nobody sees are the parts we won't skip.</p>
+    </div>
+    <div class="cross-wrap">
+      <div class="cross-stage">
+        <svg viewBox="0 0 380 340" width="100%" height="100%" id="crossSvg">
+          <!-- rafters -->
+          <g id="layer-rafters" opacity="0.15">
+            <rect x="40" y="200" width="14" height="120" fill="#9c7b4f" transform="rotate(-32 47 260)"/>
+            <rect x="120" y="200" width="14" height="120" fill="#9c7b4f" transform="rotate(-32 127 260)"/>
+            <rect x="200" y="200" width="14" height="120" fill="#9c7b4f" transform="rotate(-32 207 260)"/>
+            <rect x="280" y="200" width="14" height="120" fill="#9c7b4f" transform="rotate(-32 287 260)"/>
+          </g>
+          <!-- felt -->
+          <g id="layer-felt" opacity="0.15">
+            <rect x="30" y="150" width="320" height="16" rx="2" fill="#2b3138" transform="skewY(-20)"/>
+          </g>
+          <!-- batten -->
+          <g id="layer-batten" opacity="0.15">
+            <rect x="20" y="120" width="30" height="200" fill="#4a4640" transform="rotate(-32 35 220) translate(0,-40)"/>
+            <rect x="90" y="100" width="300" height="10" fill="#6b6459" transform="rotate(-32 60 150)"/>
+            <rect x="90" y="130" width="300" height="10" fill="#6b6459" transform="rotate(-32 60 180)"/>
+            <rect x="90" y="160" width="300" height="10" fill="#6b6459" transform="rotate(-32 60 210)"/>
+          </g>
+          <!-- tiles -->
+          <g id="layer-tiles" opacity="0.15">
+            <rect x="30" y="60" width="320" height="230" fill="#b1502e" transform="rotate(-32 30 60)"/>
+            <g stroke="#8f3f24" stroke-width="2" opacity="0.6" transform="rotate(-32 30 60)">
+              <line x1="30" y1="80" x2="350" y2="80"/>
+              <line x1="30" y1="110" x2="350" y2="110"/>
+              <line x1="30" y1="140" x2="350" y2="140"/>
+              <line x1="30" y1="170" x2="350" y2="170"/>
+              <line x1="30" y1="200" x2="350" y2="200"/>
+              <line x1="30" y1="230" x2="350" y2="230"/>
+              <line x1="30" y1="260" x2="350" y2="260"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="layer-list" id="layerList">
+        <div class="layer-item" data-layer="rafters">
+          <div class="layer-tag">01</div>
+          <div><h4>Rafters</h4><p>The timber skeleton. If this shifts, everything above it moves with it — so it's the first thing we check, not the last.</p></div>
+        </div>
+        <div class="layer-item" data-layer="felt">
+          <div class="layer-tag">02</div>
+          <div><h4>Roofing felt</h4><p>The waterproof backstop. A tired or torn felt layer is behind more slow leaks than any cracked tile.</p></div>
+        </div>
+        <div class="layer-item" data-layer="batten">
+          <div class="layer-tag">03</div>
+          <div><h4>Battens</h4><p>What every tile actually hangs from. Rotten or under-spec battens mean tiles that slip years before their time.</p></div>
+        </div>
+        <div class="layer-item" data-layer="tiles">
+          <div class="layer-tag">04</div>
+          <div><h4>Tiles or slate</h4><p>The layer everyone sees — and the one most companies quote on without checking the three underneath it.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="roofline dark" viewBox="0 0 1200 64" preserveAspectRatio="none">
+    <path d="M0,64 L0,40 L60,10 L120,40 L180,10 L240,40 L300,10 L360,40 L420,10 L480,40 L540,10 L600,40 L660,10 L720,40 L780,10 L840,40 L900,10 L960,40 L1020,10 L1080,40 L1140,10 L1200,40 L1200,64 Z" fill="var(--cream-100)"/>
+  </svg>
+</section>
+
+<!-- ===== STORY ===== -->
+<section class="story section-pad" id="story">
+  <div class="wrap story-grid">
+    <div class="story-frame">
+      <div class="initials">D&amp;S</div>
+      <div class="frame-tag">Anstey, Leicester</div>
+    </div>
+    <div class="story-copy">
+      <div class="eyebrow" style="color:var(--tile-600);margin-bottom:20px;">Dave &amp; Samantha</div>
+      <p>Two companies came to look at the same leak. One diagnosis, two very different outcomes and prices.</p>
+      <p>Dave took one look, found the broken tile causing it, and had it replaced there and then — the leak solved in under half an hour. No follow-up quote, no second visit, no inflated job sheet.</p>
+      <p>That's the whole business, really. Samantha runs the calls and the scheduling; Dave's on the roof. Between them, D F Roofing Services has built its name the slow way — one honest job at a time, for neighbours who talk to each other.</p>
+      <div class="story-sign">— Dave &amp; Samantha</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews section-pad" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--tile-600)">4.7 out of 5 · 12 reviews</div>
+      <h2 style="color:var(--cream-100)">What the neighbours say.</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"His work is of excellent quality."</blockquote>
+        </div>
+        <cite>Local homeowner, Leicestershire</cite>
+      </div>
+      <div class="review-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Always helpful and do a great job for a really good price."</blockquote>
+        </div>
+        <cite>Local homeowner, Anstey</cite>
+      </div>
+      <div class="review-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Such a rarity to find such honest trades people."</blockquote>
+        </div>
+        <cite>On a same-day leak repair</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Got a leak, a loose tile, or just a roof you're not sure about?</h2>
+        <p>Call Dave and Samantha directly. Most jobs are quoted on the spot, and most leaks are found and fixed the same visit.</p>
+        <a href="tel:07523829279" class="btn btn-primary">Call 07523 829279 →</a>
+      </div>
+      <div class="contact-info">
+        <div class="info-row">
+          <span class="label">Phone</span>
+          <a class="value" href="tel:07523829279">07523 829279</a>
+        </div>
+        <div class="info-row">
+          <span class="label">Address</span>
+          <span class="value">95 Link Rd, Anstey, Leicester LE7 7BZ</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Hours today</span>
+          <span class="value">Open · Closes 6pm</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Rating</span>
+          <span class="value">4.7 ★ — 12 reviews</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">D&nbsp;F Roofing Services</div>
+    <div>95 Link Rd, Anstey, Leicester LE7 7BZ &nbsp;·&nbsp; 07523 829279</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Signature cross-section reveal
+  const layers = ['rafters','felt','batten','tiles'];
+  const layerItems = document.querySelectorAll('.layer-item');
+  const svgLayers = {};
+  layers.forEach(l => svgLayers[l] = document.getElementById('layer-' + l));
+
+  function activate(index){
+    layerItems.forEach((el,i) => el.classList.toggle('active', i <= index));
+    layers.forEach((l,i) => {
+      if(svgLayers[l]) svgLayers[l].style.transition = 'opacity .6s ease';
+      if(svgLayers[l]) svgLayers[l].style.opacity = i <= index ? 1 : 0.15;
+    });
+  }
+
+  const observerOptions = { threshold: 0.5 };
+  layerItems.forEach((item, index) => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ activate(index); }
+      });
+    }, observerOptions);
+    obs.observe(item);
+  });
+
+  // fallback: activate all on load for reduced-motion users
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    activate(layers.length - 1);
+  }
+</script>
+
+</body>
+</html>
